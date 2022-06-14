@@ -27,11 +27,10 @@ const QuoteCard = ({ item, quotesList, setQuotesList }) => {
           <Button
             onClick={() => {
               DeleteQuotePost(item);
-              const index = quotesList.findIndex(
-                (innerObj) => item.UserPostID === innerObj.UserPostID
+
+              let newTempArray = quotesList.filter(
+                (data) => data.UserPostID !== item.UserPostID
               );
-              let newTempArray = [...quotesList];
-            newTempArray=    newTempArray.splice(index, 1);
               setQuotesList(newTempArray);
             }}
             type={"danger"}

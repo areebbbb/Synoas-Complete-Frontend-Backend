@@ -31,7 +31,17 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 CORS_ORIGIN_ALLOW_ALL = True
-CORS_ALLOWED_ORIGINS = []
+CORS_ALLOWED_ORIGINS = [
+    "https://domain.com",
+    "https://api.domain.com",
+    "http://localhost:8080",
+    "http://localhost:3000",
+    "http://localhost:4200",
+    "http://127.0.0.1:9000",
+    "http://127.0.0.1:8000",
+    "http://127.0.0.1:3000",
+    "http://*",
+]
 CORS_ALLOW_METHODS = [
     "DELETE",
     "GET",

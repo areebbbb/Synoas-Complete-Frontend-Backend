@@ -1,4 +1,5 @@
 import Api from "services/api";
+import * as axios from "axios";
 
 export function getLoginToken(username, password) {
   const api = new Api();
@@ -21,11 +22,7 @@ export function postRegisterUser(values) {
 }
 
 export function postVerifyToken(token) {
-  const api = new Api();
-  return api
-    .init()
-    .post("api/token/verify/", { token: token })
-    .catch((err) => {
-      api.errorCatcher(err);
-    });
+  return axios.post(`${process.env.NEXT_PUBLIC_SSR_URL}/api/token/verify/`, {
+    token: token,
+  });
 }
