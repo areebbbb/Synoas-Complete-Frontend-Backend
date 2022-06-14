@@ -12,8 +12,8 @@ const JokesList = () => {
   };
   return (
     <>
-      {listOfJokes.map((item) => (
-        <JokeCard />
+      {listOfJokes.map((item, index) => (
+        <JokeCard key={`${item}${index}`} />
       ))}
       <div className="p-4">
         <Button
