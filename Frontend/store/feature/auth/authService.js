@@ -3,12 +3,7 @@ import * as axios from "axios";
 
 export function getLoginToken(username, password) {
   const api = new Api();
-  return api
-    .init()
-    .post("/api/token/", { username, password })
-    .catch((err) => {
-      api.errorCatcher(err);
-    });
+  return api.init().post("/api/token/", { username, password });
 }
 
 export function postRegisterUser(values) {

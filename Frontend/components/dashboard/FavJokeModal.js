@@ -17,7 +17,7 @@ const FavJokeModal = ({ modalVisible, onCloseHandler }) => {
   return (
     <Modal
       visible={modalVisible}
-      title="Fav Quotes"
+      title="Favorite  Quotes"
       footer={[
         <Button onClick={onCloseHandler} key="modalCloseFav">
           Close
@@ -37,7 +37,7 @@ const FavJokeModal = ({ modalVisible, onCloseHandler }) => {
       ))}
       {quotesList.length === 0 && (
         <div className="flex w-full p-4 bg-white dark:bg-slate-600 dark:text-white justify-between align-middle  shadow-xl my-8  dark:shadow-white">
-          You have no Fav Quotes
+          You have no Favorite Quotes
         </div>
       )}
     </Modal>

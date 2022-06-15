@@ -47,7 +47,6 @@ export const LoginHandler = (username, password) => {
     dispatch(UIActions.setGlobalLoading(true));
     await getLoginToken(username, password)
       .catch((err) => {
-        console.log("err", err);
         dispatch(UIActions.setGlobalLoading(false));
         login = false;
         message.error(err.response.data.detail, 5);

@@ -43,7 +43,7 @@ export default function Home() {
             }}
             htmlType="antdButton"
           >
-            Show All recent Activities
+            Show all recent activities
           </Button>
           {dashboardTrackerModal && (
             <DashboardTrackerModal

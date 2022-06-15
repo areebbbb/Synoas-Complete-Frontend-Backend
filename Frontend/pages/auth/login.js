@@ -76,7 +76,6 @@ const login = () => {
                 >
                   Log in
                 </Button>
-                <span className="dark:text-white">Or</span>
                 <Link href="/auth/register">
                   <a className="dark:text-white"> register now!</a>
                 </Link>

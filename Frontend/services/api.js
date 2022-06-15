@@ -1,8 +1,8 @@
 import * as axios from "axios";
 import { message } from "antd";
 import Cookies from "js-cookie";
-import { authActions,  } from "store/feature/auth/authSlice";
-import { makeStore,  } from "store/store";
+import { authActions } from "store/feature/auth/authSlice";
+import { makeStore } from "store/store";
 export default class Api {
   constructor() {
     this.api_token = null;
@@ -34,7 +34,6 @@ export default class Api {
   };
 
   errorCatcher(error) {
-    console.log(error);
     if (error.response?.status === 401 || error.response?.status === 403) {
       message.error("You are not authorized to do this action", 5);
       makeStore().dispatch(authActions.setToken(null));

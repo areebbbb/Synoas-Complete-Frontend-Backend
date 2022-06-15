@@ -61,6 +61,10 @@ class CountrySerializer(serializers.DynamicModelSerializer):
 
 
 class CitySerializer(serializers.DynamicModelSerializer):
+    CountryCode = serializers.DynamicRelationField(
+        "CountrySerializer", embed=True
+    )
+
     class Meta:
         model = models.City
         fields = "__all__"

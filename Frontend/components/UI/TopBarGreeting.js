@@ -24,7 +24,7 @@ const TopBarGreeting = () => {
     <>
       <div className="gap-2 grid grid-cols-1">
         <TopBarCard>
-          <h2 className="text-4xl dark:text-white">
+          <h2 className="text-4xl dark:text-white capitalize">
             Welcome {auth.User.first_name}
           </h2>
           <h3 className="text-2xl  dark:text-white">
