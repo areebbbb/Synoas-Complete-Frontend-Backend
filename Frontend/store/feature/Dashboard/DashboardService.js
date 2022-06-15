@@ -8,9 +8,13 @@ export function postGeoLocation(username, data) {
   });
 }
 
-export function getApplicationLoginActivity() {
+export function getApplicationLoginActivity(username) {
   const api = new Api();
-  return api.init().get("/api/ApplicationLoginActivityViewSet/");
+  return api
+    .init()
+    .get(
+      `/api/ApplicationLoginActivityViewSet/?filter{UserID.username}=${username}`
+    );
 }
 
 export function postJokePost(user, joke) {

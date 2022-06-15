@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { getApplicationLoginActivity } from "store/feature/Dashboard/DashboardService";
 import { Button, Modal, Table } from "antd";
 import moment from "moment";
+import { authSelector } from "store/feature/auth/authSlice";
+import { useAppSelector } from "hooks/hook";
 const columns = [
   {
     title: "Name",
@@ -55,10 +57,11 @@ const columns = [
 
 const DashboardTrackerModal = ({ visible, dashboardTrackerCloseHandler }) => {
   const [tableData, setTableData] = useState([]);
+  const auth = useAppSelector(authSelector);
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     setLoading(true);
-    getApplicationLoginActivity().then((res) => {
+    getApplicationLoginActivity(auth.User.username).then((res) => {
       if (!res) return;
       setTableData(res.data.Application_Login_Activities);
       setLoading(false);

@@ -11,6 +11,12 @@ import { DashboardActions } from "store/feature/Dashboard/DashboardSlice";
 import TopBarDash from "components/dashboard/TopBarDash";
 import DashboardTrackerModal from "components/dashboard/DashboardTrackerModal";
 import JokesList from "components/dashboard/JokesList";
+import dynamic from "next/dynamic";
+
+const VectorMapComp = dynamic(
+  () => import("components/dashboard/VectorMapComp"),
+  { ssr: false }
+);
 export default function Home() {
   const auth = useAppSelector(authSelector);
   const dispatch = useAppDispatch();
@@ -51,6 +57,9 @@ export default function Home() {
               dashboardTrackerCloseHandler={dashboardTrackerCloseHandler}
             />
           )}
+        </div>
+        <div className="min-h-[500px] min-w-[500px]">
+          <VectorMapComp />
         </div>
         <JokesList />
       </div>

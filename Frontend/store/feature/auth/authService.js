@@ -8,12 +8,7 @@ export function getLoginToken(username, password) {
 
 export function postRegisterUser(values) {
   const api = new Api();
-  return api
-    .init()
-    .post("/api/register/", values)
-    .catch((err) => {
-      api.errorCatcher(err);
-    });
+  return api.init().post("/api/register/", values);
 }
 
 export function postVerifyToken(token) {

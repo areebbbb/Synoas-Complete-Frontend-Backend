@@ -5,7 +5,7 @@ import FavJokeModal from "./FavJokeModal";
 
 const JokesList = () => {
   const [modalVisible, setModalVisible] = useState(false);
-  const listOfJokes = Array(5).fill(0);
+  const listOfJokes = Array(7).fill(0);
   const onCloseHandler = () => {
     setModalVisible(false);
   };
