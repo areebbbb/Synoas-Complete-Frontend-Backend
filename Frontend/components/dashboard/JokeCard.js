@@ -29,9 +29,7 @@ const JokeCard = () => {
           }`}
           onClick={() => {
             setFav((pre) => !pre);
-            postJokePost(auth.User.username, jokeData.value).then((res) => {
-              message.success("Request Completed", 3);
-            });
+            postJokePost(auth.User.username, jokeData.value);
           }}
         />
       )}
