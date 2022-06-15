@@ -1,5 +1,4 @@
 import { Button } from "antd";
-import React from "react";
 import { useState } from "react";
 import JokeCard from "./JokeCard";
 import FavJokeModal from "./FavJokeModal";

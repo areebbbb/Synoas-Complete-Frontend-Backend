@@ -1,4 +1,3 @@
-import React from "react";
 import { useState, useEffect } from "react";
 import { getApplicationLoginActivity } from "store/feature/Dashboard/DashboardService";
 import { Button, Modal, Table } from "antd";
