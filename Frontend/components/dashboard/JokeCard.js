@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { authSelector } from "store/feature/auth/authSlice";
 import { postJokePost } from "store/feature/Dashboard/DashboardService";
 import { getJoke } from "store/feature/externalApi/externalApiService";
-import { message, Spin } from "antd";
+import { Spin } from "antd";
 
 const JokeCard = () => {
   const auth = useAppSelector(authSelector);
