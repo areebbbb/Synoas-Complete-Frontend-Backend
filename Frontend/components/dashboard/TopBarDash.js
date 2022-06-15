@@ -31,7 +31,7 @@ const TopBarDash = () => {
     <>
       <TopBarGreeting />
 
-      <div className="grid grid-cols-2 mt-2 gap-3">
+      <div className="grid md:grid-cols-2 mt-2 gap-3 grid-cols-1 ">
         <TopBarCard>
           {"Today's Temperature is "}
           <span className="font-semibold">
