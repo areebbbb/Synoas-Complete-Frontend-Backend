@@ -114,7 +114,7 @@ const register = () => {
               </Form.Item>
               <Form.Item
                 name="email"
-                label={<p className="dark:text-white">E-mail</p>}
+                label={<p className="dark:text-white">Email</p>}
                 rules={[
                   {
                     type: "email",
@@ -184,7 +184,6 @@ const register = () => {
                 </Button>
               </Form.Item>
               <div className="text-right">
-                <span className="dark:text-white">Or </span>
                 <Link href="/auth/login">
                   <a className="dark:text-white"> Login!</a>
                 </Link>

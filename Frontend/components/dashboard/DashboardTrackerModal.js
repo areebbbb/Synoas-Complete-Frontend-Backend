@@ -14,7 +14,7 @@ const columns = [
     render: (text, record) => (record.UserID ? record.UserID.username : ""),
   },
   {
-    title: "City Name",
+    title: "City ",
     dataIndex: "CityID",
     sorter: {
       compare: (a, b) => a.CityID.CityName.localeCompare(b.CityID.CityName),
@@ -23,7 +23,19 @@ const columns = [
     render: (text, record) => record.CityID.CityName,
   },
   {
-    title: "IPAddress",
+    title: "Country ",
+    dataIndex: "CityID",
+    sorter: {
+      compare: (a, b) =>
+        a.CityID.CountryCode.CountryName.localeCompare(
+          b.CityID.CountryCode.CountryName
+        ),
+      multiple: 3,
+    },
+    render: (text, record) => record.CityID.CountryCode.CountryName,
+  },
+  {
+    title: "IP Address",
     dataIndex: "IPAddress",
     sorter: {
       compare: (a, b) => a.IPAddress.localeCompare(b.IPAddress),
@@ -31,9 +43,9 @@ const columns = [
     },
   },
   {
-    title: "LoginTimestamp",
+    title: "Login Time",
     dataIndex: "LoginTimestamp",
-    render: (text, record) => new moment(text).toString("MM/DD/YYYY HH:mm:ss"),
+    render: (text, record) => new moment(text).format("MM/DD/YYYY HH:mm:ss"),
     sorter: {
       compare: (a, b) =>
         new moment(a.LoginTimestamp) - new moment(b.LoginTimestamp),

@@ -100,7 +100,7 @@ class CountryViewSet(viewsets.DynamicModelViewSet):
 
 class ApplicationLoginActivityViewSet(viewsets.DynamicModelViewSet):
     queryset = models.ApplicationLoginActivity.objects.all().order_by(
-        "LoginTimestamp"
+        "-LoginTimestamp"
     )
     serializer_class = serializers.ApplicationLoginActivitySerializer
 

@@ -24,7 +24,7 @@ const JokesList = () => {
           type="primary"
           htmlType="antdButton"
         >
-          View Fav Quotes
+          View Favorite Quotes
         </Button>
       </div>
       {modalVisible && (
