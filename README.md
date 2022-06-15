@@ -8,7 +8,7 @@ Frontend is build using Next js using tailwind and antd theme.
 - Auth
 - Track user activity
 - Showing personalized widget based on location and name
-- Showing random Quotes which use can interact with.
+- Showing random Quotes which user can interact with.
 
 
 ## Installation
