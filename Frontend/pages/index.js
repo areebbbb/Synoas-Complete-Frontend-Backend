@@ -1,18 +1,23 @@
+import { Button } from "antd";
 import { wrapper } from "store/store";
 import useUIThemeSetter from "hooks/useUIThemeSetter";
 import useReqSetToken from "hooks/useReqSetToken";
 import { useAppDispatch, useAppSelector } from "hooks/hook";
 import { authSelector } from "store/feature/auth/authSlice";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { getGeoLocation } from "store/feature/externalApi/externalApiService";
 import { postGeoLocation } from "store/feature/Dashboard/DashboardService";
 import { DashboardActions } from "store/feature/Dashboard/DashboardSlice";
 import TopBarDash from "components/dashboard/TopBarDash";
-import DashboardTracker from "components/dashboard/DashboardTracker";
+import DashboardTrackerModal from "components/dashboard/DashboardTrackerModal";
 import JokesList from "components/dashboard/JokesList";
 export default function Home() {
   const auth = useAppSelector(authSelector);
   const dispatch = useAppDispatch();
+  const [dashboardTrackerModal, setDashboardTrackerModal] = useState(false);
+  const dashboardTrackerCloseHandler = () => {
+    setDashboardTrackerModal(false);
+  };
   useEffect(() => {
     getGeoLocation().then((res) => {
       dispatch(DashboardActions.setCity(res?.data?.city));
@@ -30,7 +35,23 @@ export default function Home() {
         <div className="  p-[25px]  ">
           <TopBarDash />
         </div>
-        <DashboardTracker />
+        <div className="p-4">
+          <Button
+            type="primary"
+            onClick={() => {
+              setDashboardTrackerModal(true);
+            }}
+            htmlType="antdButton"
+          >
+            Show All recent Activities
+          </Button>
+          {dashboardTrackerModal && (
+            <DashboardTrackerModal
+              visible={dashboardTrackerModal}
+              dashboardTrackerCloseHandler={dashboardTrackerCloseHandler}
+            />
+          )}
+        </div>
         <JokesList />
       </div>
     </div>

@@ -22,7 +22,7 @@ export function postJokePost(user, joke) {
 
 export function getQuotePost(user) {
   const api = new Api();
-  return api.init().get("/api/UserPosts/", { "filter{username__in}": user });
+  return api.init().get(`/api/UserPosts/?filter{UserID.username}=${user}`);
 }
 
 export function patchQuotePost(Quote) {

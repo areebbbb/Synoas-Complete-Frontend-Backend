@@ -10,20 +10,19 @@ const QuoteCard = ({ item, quotesList, setQuotesList }) => {
   };
   return (
     <>
-      <div className="flex w-full p-4 justify-between align-middle  shadow-xl my-8 ">
-        {item.PostID.value}
-        <div className="align-middle my-auto mx-3">
+      <div className="flex w-full p-4 bg-white dark:bg-slate-600 dark:text-white   shadow-xl my-8  dark:shadow-white">
+        <div className="w-full">{item.PostID.value}</div>
+        <div className="h-full m-auto p-2 w-24">
           <Button
             onClick={() => {
               setEditMode(true);
             }}
-            type={"ghost"}
+            type={"primary"}
             htmlType="antdButton"
+            style={{ minWidth: "100%" }}
           >
             Edit
           </Button>
-        </div>
-        <div className="align-middle my-auto mx-3">
           <Button
             onClick={() => {
               DeleteQuotePost(item);
@@ -34,6 +33,7 @@ const QuoteCard = ({ item, quotesList, setQuotesList }) => {
               setQuotesList(newTempArray);
             }}
             type={"danger"}
+            style={{ minWidth: "100%" }}
             htmlType="antdButton"
           >
             Delete

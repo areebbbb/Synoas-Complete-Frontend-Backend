@@ -1,8 +1,6 @@
 import greetingTime from "greeting-time";
 import { useAppSelector } from "hooks/hook";
-import { memo, useState } from "react";
-
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { authSelector } from "store/feature/auth/authSlice";
 import { getGenderPrediction } from "store/feature/externalApi/externalApiService";
 
@@ -30,13 +28,13 @@ const TopBarGreeting = () => {
         <h3 className="text-2xl  dark:text-white">
           {greetingTime(new Date())}
         </h3>
-        <h4 className="dark:text-white font-black">
-          Based on your name there is {userGender.probability * 100}% that your
-          gender is {userGender.gender}
+        <h4 className="dark:text-white font-semibold">
+          Based on your name there is {userGender.probability * 100}%
+          probability that your gender is {userGender.gender}
         </h4>
       </div>
     </>
   );
 };
 
-export default memo(TopBarGreeting);
+export default TopBarGreeting;

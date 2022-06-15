@@ -1,3 +1,4 @@
+import TopBarCard from "components/UI/TopBarCard";
 import TopBarGreeting from "components/UI/TopBarGreeting";
 import { useAppDispatch, useAppSelector } from "hooks/hook";
 import { useEffect } from "react";
@@ -29,19 +30,30 @@ const TopBarDash = () => {
   return (
     <>
       <TopBarGreeting />
-      <div className="flex justify-center text-lg dark:text-white">
-        temperature is {dashboard?.Weather?.daily?.temperature_2m_max[0]} C
-      </div>
-      <div>
-        <h4 className="text-lg dark:text-white">
-          Your current City is {dashboard?.City}
-        </h4>
-        <h4 className="text-lg dark:text-white">
-          Your current Country is {dashboard?.Country}
-        </h4>
-        <h4 className="text-lg dark:text-white">
-          Your ISP is {dashboard?.ISP}
-        </h4>
+
+      <div className="grid grid-cols-2 mt-2 gap-3">
+        <TopBarCard>
+          {"Today's Temperature is "}
+          <span className="font-semibold">
+            {dashboard?.Weather?.daily?.temperature_2m_max[0]} C
+          </span>
+        </TopBarCard>
+        <TopBarCard>
+          Your current City is{" "}
+          <span className="font-semibold">{dashboard?.City}</span>
+        </TopBarCard>
+        <TopBarCard>
+          {" "}
+          Your current Country is{" "}
+          <span className="font-semibold">{dashboard?.Country}</span>
+        </TopBarCard>
+        <TopBarCard>
+          {" "}
+          Your ISP is <span className="font-semibold">
+            {" "}
+            {dashboard?.ISP}
+          </span>{" "}
+        </TopBarCard>
       </div>
     </>
   );

@@ -1,22 +1,21 @@
-from json import JSONEncoder
-import json
 from rest_framework import serializers
 from django.contrib.auth.models import User
 from rest_framework.validators import UniqueValidator
 from django.contrib.auth.password_validation import validate_password
 from services import models
+from dynamic_rest import serializers
 
 
-class RegisterSerializer(serializers.ModelSerializer):
-    email = serializers.EmailField(
+class RegisterSerializer(serializers.DynamicModelSerializer):
+    email = serializers.fields.EmailField(
         required=True,
         validators=[UniqueValidator(queryset=User.objects.all())],
     )
 
-    password = serializers.CharField(
+    password = serializers.fields.CharField(
         write_only=True, required=True, validators=[validate_password]
     )
-    confirm = serializers.CharField(write_only=True, required=True)
+    confirm = serializers.fields.CharField(write_only=True, required=True)
 
     class Meta:
         model = User
@@ -55,9 +54,6 @@ class RegisterSerializer(serializers.ModelSerializer):
         return user
 
 
-from dynamic_rest import serializers
-
-
 class CountrySerializer(serializers.DynamicModelSerializer):
     class Meta:
         model = models.Country
@@ -77,8 +73,8 @@ class PostSerializer(serializers.DynamicModelSerializer):
 
 
 class UserPostSerializer(serializers.DynamicModelSerializer):
-    UserID = RegisterSerializer()
     PostID = serializers.DynamicRelationField("PostSerializer", embed=True)
+    UserID = serializers.DynamicRelationField("RegisterSerializer", embed=True)
 
     class Meta:
         model = models.UserPost
@@ -86,7 +82,7 @@ class UserPostSerializer(serializers.DynamicModelSerializer):
 
 
 class ApplicationLoginActivitySerializer(serializers.DynamicModelSerializer):
-    UserID = RegisterSerializer()
+    UserID = serializers.DynamicRelationField("RegisterSerializer", embed=True)
     CityID = serializers.DynamicRelationField("CitySerializer", embed=True)
 
     class Meta:

@@ -3,7 +3,6 @@ import { patchQuotePost } from "store/feature/Dashboard/DashboardService";
 
 const EditModal = ({ editMode, onCloseHandler, item }) => {
   const onFinish = (values) => {
-    console.log(values);
     item.PostID.value = values.value;
     patchQuotePost(item.PostID);
     onCloseHandler();
@@ -36,7 +35,7 @@ const EditModal = ({ editMode, onCloseHandler, item }) => {
             },
           ]}
         >
-          <Input />
+          <Input.TextArea />
         </Form.Item>
         <Form.Item>
           <Button

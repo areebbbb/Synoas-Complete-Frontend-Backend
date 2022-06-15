@@ -1,9 +1,8 @@
 import * as axios from "axios";
 import { message } from "antd";
 import Cookies from "js-cookie";
-import { useAppSelector } from "hooks/hook";
-import { authActions, authSelector } from "store/feature/auth/authSlice";
-import { makeStore, wrapper } from "store/store";
+import { authActions,  } from "store/feature/auth/authSlice";
+import { makeStore,  } from "store/store";
 export default class Api {
   constructor() {
     this.api_token = null;

@@ -1,7 +1,5 @@
-import React from "react";
 import { Modal, Button } from "antd";
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { getQuotePost } from "store/feature/Dashboard/DashboardService";
 import { useAppSelector } from "hooks/hook";
 import { authSelector } from "store/feature/auth/authSlice";
@@ -26,6 +24,7 @@ const FavJokeModal = ({ modalVisible, onCloseHandler }) => {
         </Button>,
       ]}
       centered
+      bodyStyle={{ backgroundColor: "rgb(156 163 175)" }}
       onCancel={onCloseHandler}
     >
       {quotesList?.map((item) => (
@@ -36,6 +35,11 @@ const FavJokeModal = ({ modalVisible, onCloseHandler }) => {
           setQuotesList={setQuotesList}
         />
       ))}
+      {quotesList.length === 0 && (
+        <div className="flex w-full p-4 bg-white dark:bg-slate-600 dark:text-white justify-between align-middle  shadow-xl my-8  dark:shadow-white">
+          You have no Fav Quotes
+        </div>
+      )}
     </Modal>
   );
 };
