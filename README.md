@@ -30,6 +30,13 @@ Backend Port...
 Localhost:8000
 ```
 
+## Default User
+
+```sh
+username: cozuve
+password: Pa$$w0rd!
+```
+
 ## License
 
 MIT
