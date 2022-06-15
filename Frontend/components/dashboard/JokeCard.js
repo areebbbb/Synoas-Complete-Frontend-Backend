@@ -21,8 +21,8 @@ const JokeCard = () => {
 
   const [fav, setFav] = useState(false);
   return (
-    <Spin spinning={jokeDataLoading}>
-      <div className="m-auto text-center justify-center gird gird-cols-1 min-h-[20px]">
+    <div className="m-auto text-center justify-center gird gird-cols-1">
+      {!jokeDataLoading && (
         <HeartIcon
           className={`max-h-5 w-full cursor-pointer ${
             fav ? "text-red-600" : "text-black  dark:text-white"
@@ -34,11 +34,13 @@ const JokeCard = () => {
             });
           }}
         />
-        <div className="min-w-full border border-gray-500 dark:border-gray-300 rounded-xl p-2 m-2">
+      )}
+      <Spin spinning={jokeDataLoading}>
+        <div className="min-w-full border border-gray-500 dark:border-gray-300 rounded-xl p-2 m-2  min-h-[40px]">
           {jokeData?.value}
         </div>
-      </div>
-    </Spin>
+      </Spin>
+    </div>
   );
 };
 
